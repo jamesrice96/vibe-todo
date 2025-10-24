@@ -1,30 +1,16 @@
-'use client';
+"use client";
 
-import { useState, useEffect } from 'react';
-import Confetti from 'react-confetti';
-import { CheckCircle2 } from 'lucide-react';
-import { useTodos } from './hooks/useTodos';
-import { TodoForm } from './components/TodoForm';
-import { TodoList } from './components/TodoList';
+import { useState, useEffect } from "react";
+import Confetti from "react-confetti";
+import { CheckCircle2 } from "lucide-react";
+import { useTodos } from "./hooks/useTodos";
+import { TodoForm } from "./components/TodoForm";
+import { TodoList } from "./components/TodoList";
 
 export default function Home() {
   const { todos, isLoaded, addTodo, toggleTodoComplete, deleteTodo } =
     useTodos();
   const [showConfetti, setShowConfetti] = useState(false);
-  const [windowSize, setWindowSize] = useState({ width: 0, height: 0 });
-
-  useEffect(() => {
-    const handleResize = () => {
-      setWindowSize({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    };
-
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
 
   const handleToggleComplete = (id: string) => {
     const todo = todos.find((t) => t.id === id);
@@ -47,15 +33,9 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-950 dark:to-slate-900">
+    <div className="min-h-screen bg-linear-to-br from-slate-50 to-slate-100 dark:from-slate-950 dark:to-slate-900">
       {showConfetti && (
-        <Confetti
-          width={windowSize.width}
-          height={windowSize.height}
-          recycle={false}
-          numberOfPieces={500}
-          gravity={0.3}
-        />
+        <Confetti recycle={false} numberOfPieces={500} gravity={0.3} />
       )}
 
       <main className="container mx-auto max-w-4xl px-4 py-8 sm:py-12">
