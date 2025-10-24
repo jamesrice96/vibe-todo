@@ -16,18 +16,24 @@ Claude (or any AI contributing code) must adhere strictly to these guidelines wh
 - Use memo and callback hooks for performance optimization when necessary
 - Use proper list rendering with keys
 - Prefer composition over inheritance
-- Use Tailwind CSS for styling
 - No use of `any` or `Function` types — always use explicit, strongly-typed interfaces or function signatures.
+- Only create additional components if it makes sense from following the code quality principles
+- Follow best practices for the nextjs app router
 
-### Code Quality
+## Code Quality
 
 - Code must be modular, readable, and easy to maintain.
 - Use clear naming conventions (camelCase for variables, PascalCase for components).
 - Avoid magic numbers, duplication, and deeply nested conditionals.
 - All external dependencies must be justified and minimal.
 
+## Libraries
+
+- shadcn
+- react-hook-form with zod
+
 ## Project Structure
 
-- components should be placed in `app/components`
+- shadn components should be placed in `app/components/ui`
 - helpers should be placed in `app/helpers`
 - hooks should be placed in `app/hooks`
